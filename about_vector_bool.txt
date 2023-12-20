@@ -1,0 +1,13 @@
+you cant iterate on a boolean vector with 
+for each loop using reference
+i.e like for(auto &it:a_bool_vector)   invalid syntax
+if you want to just read only just use (auto it:a_bool_vector)
+or if you want read and write do (auto &&it:a_bool_vector)
+
+Now why is it so ?
+For space-optimization, the C++ standard explicitly calls out vector<bool> as a special standard container
+where each bool uses only one bit of space rather than one byte as a normal bool 
+In exchange for this optimization it doesn't offer all the capabilities and interface of a normal standard container.
+In this case, since you can't take the address of a bit within a byte, things such as operator[] can't return a bool& but
+instead return a proxy object that allows to manipulate the particular bit in question. Since this proxy object is
+not a bool&, you can't assign its address to a bool* or use it as a reference.

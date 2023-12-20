@@ -1,0 +1,22 @@
+bitset<4901> p(1);
+for (vector<int>& r : mat) {
+    bitset<4901> tmp;
+    for (int i : r) {
+      // what happens if we left shift a bitset by i
+      // 000110 say this is og bitset
+      // 000110 << 1  = 001100
+      // if we denote each bit as a number we have
+      // 1 and 2 initially after left shifting we got 2 and 3
+      // that is we added 1 to each 1 and 2
+      // this is the logic of applying left shift on bitset 
+      // p<<i implies we add i to every number in p
+      // tmp = tmp or (p<<i) means whatever numbers we found we are adding it to bitset tmp
+      // so after all the iterations for a single row we will have found all such number combinations and stored them in tmp
+        tmp = tmp | (p << i);
+    }
+    swap(p, tmp);
+     // as a final step update p with tmp so that we can repeat the operation with next row
+}
+// mat is a matrix
+// 4901 indicates that sum ranges from 0 to 4900.
+// basicaly 0th position indicates sum is 0 
