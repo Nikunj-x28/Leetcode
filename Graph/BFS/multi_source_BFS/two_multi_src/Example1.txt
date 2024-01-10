@@ -1,0 +1,28 @@
+
+Here we have two types of multisource and have to find the point where they will meet.
+
+In a region consisting of N towns, there are M bidirectional roads connecting these towns.
+Each road is of equal length. In this region, there are two types of armies stationed: the Red Army and the Blue Army.
+The Red Army is stationed in R distinct towns, and the Blue Army is stationed in B distinct towns, with no town
+hosting both a Red and a Blue army unit simultaneously.
+
+Find the minimum amount of time required for any two armies of different colors to clash.
+It is known that an army can travel from one town to another across any road in exactly one day. Consider
+all possible paths and scenarios in which the two armies might travel and clash. Armies can move independently 
+and simultaneously.
+If two armies can never clash, then print "-1".
+
+Input
+The first line contains two integers N and M
+the number of towns and the number of bidirectional roads respectively.
+The second line contains N integers, where each integer is either 0 (no army), 1 (Blue army), or 2 (Red army),
+representing the presence of an army in each town.
+The next M lines each contain two integers u and v
+representing a bidirectional road between towns u and v.
+
+Output
+The minimum number of days required for any two armies of different colors (one Red and one Blue) to meet,
+assuming they start traveling towards each other at the same time.
+
+If red and blue armies can never clash, then print "-1".
+

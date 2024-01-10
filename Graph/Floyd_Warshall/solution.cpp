@@ -12,6 +12,12 @@ public:
             for (k = 0; k < V; k++) {
                 if(v[k]==0) continue;
                 for (i = 0; i < V; i++) {
+                    // we should check condition of invalidness
+                    // before the loop starts to save time
+                    // this optimization is in general favourable in floyd warshall
+
+                    // e.g check dist[i][k]==INT_MAX and continue here in floyd warshall
+                    
                     if(v[i]==0) continue;
                     for (j = 0; j < V; j++) {
                         if(v[j]==0) continue;

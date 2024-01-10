@@ -1,0 +1,28 @@
+What in essence is BFS ?
+A single source search algorithm that always reaches the destination in least number
+of steps.
+For unweighted or uniform weighted graphs that is.
+
+So whenever we have a source and we want to go to a destination and the moves 
+themselves are structured as edges of a graph from one value to a new value we can apply BFS.
+This example illustrates this ->
+
+Example 1:-
+    You are given two positive integers x and y.
+
+    In one operation, you can do one of the four following operations:
+
+    Divide x by 11 if x is a multiple of 11.
+    Divide x by 5 if x is a multiple of 5.
+    Decrement x by 1.
+    Increment x by 1.
+    Return the minimum number of operations required to make x and y equal.
+
+    1 <= x, y <= 10^4
+
+    each transition gives you a new number (or an already visited number in which case we dont consider it)
+    Now we keep on making transitions and we will at some point reach Y right ?
+    Yes it seems so but what about the complexity is it feasible to apply BFS ?
+    Upon careful inspection we can see it will take in worst case atmost abs(x-y) moves 
+    which are well within the time constraints .
+    So BFS will brute force the way to get these minimum number of moves.

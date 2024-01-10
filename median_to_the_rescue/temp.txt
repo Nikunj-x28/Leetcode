@@ -1,0 +1,4 @@
+https://leetcode.com/problems/apply-operations-to-maximize-frequency-score/description/
+https://leetcode.com/problems/matchsticks-to-square/description/
+https://leetcode.com/problems/sum-of-mutated-array-closest-to-target/description/
+https://leetcode.com/problems/find-two-non-overlapping-sub-arrays-each-with-target-sum/description/

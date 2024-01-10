@@ -1,0 +1,17 @@
+What is multi source BFS ?
+
+Usuallly we encounter BFS problems where we have a single starting point and we start traversal from there.
+But certain problems require that we have multiple starting positions.
+
+Imagine a group of people starting the search together . If one of them finds a solution or destination all of them
+have found it right. This is the intuition behind multi source BFS.
+
+So these are basically problems where multiple nodes will be first put in a queue and then we start a BFS.
+
+Sometimes we may also have two groups or more. That is imagine now their are two groups of people and both are
+searching for the other group . How do we tackle this in a BFS ?
+We have to insert both groups in the BFS queue and then start traversal but how do we decide when they meet ?
+For this and many other similar single source problems we modify the defintion of a node so that we can 
+uniquely identify it. 
+Here a node will be {position + group number}.
+Example 1 illustrates this very particular Problem and its solution.
