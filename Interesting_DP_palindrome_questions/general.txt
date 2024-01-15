@@ -1,0 +1,22 @@
+Counting palidromic subsequences is generally a Dynamic Programming problem.
+
+Suppose we have a string S.
+Let DP[i][j] denote number of palidromic subsequences lieing in [i,j].
+Lets try to form a general recurrence relation for counting all possible palidromic subsequences.
+Let PS denote palidromic subsequences.
+
+We will utilize Principal of inclusion exclusion to get the result.
+if(i==j) dp[i][j]=1;
+if(i>j) dp[i][j]=0;
+if(s[i]==s[j]) 
+    dp[i][j] = 1 (for s[i]==s[j]) +
+               dp[i+1][j-1] ( s[i] [i+1,j-1] s[j] --> add s[i],s[j] to all PS between[i+1,j-1]) +
+
+               (Lets say we dont want to pair up s[i] with s[j])
+               (Then we have the following two paths)
+               dp[i+1][j] + dp[i][j-1] 
+               - dp[i+1,j-1]  (because this is counted twice in the abve two partitions)
+
+             = 1 + dp[i+1][j] + dp[i][j-1];
+
+else  dp[i][j] = dp[i+1][j] + dp[i][j-1] - dp[i+1,j-1] 
