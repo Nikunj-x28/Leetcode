@@ -1,0 +1,8 @@
+Suppose you have a mxn grid.
+(Use a pen and paper.)
+Let dp[i][j] be the sum of rectange from top left corner (0,0) to
+(i,j).
+then we have
+take indexing of dp 1 based and initialize it with 0.
+We can think of it as being surrounded by 0s at the left and top boundary.
+dp[i][j] = matrix[i-1][j-1]+dp[i-1][j]+dp[i][j-1]-dp[i-1][j-1];

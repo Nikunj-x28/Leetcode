@@ -1,0 +1,6 @@
+Use custom comparator to do custom sort.
+S here can also be a vector of vector.
+That is you can also sort a vector of vector.
+sort(s.begin(),s.end(),[](){
+        return .....
+});
