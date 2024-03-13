@@ -3,3 +3,6 @@ https://leetcode.com/problems/range-sum-query-2d-immutable/description/
 
 2. Same thing as previous problem just asked indirectly
 https://leetcode.com/problems/matrix-block-sum/description/
+
+3. Good Question on the concept
+https://leetcode.com/problems/stamping-the-grid/description/
