@@ -129,3 +129,69 @@ class DisjointSets {
 	bool connected(int x, int y) { return find(x) == find(y); }
 };
 ```
+
+# Trie
+```
+    class Node{
+    public:
+    Node *links[26];
+    bool isend;
+    int index;
+    Node(){
+        isend=false;
+        index=-1;
+        for(int i=0;i<26;i++){
+            links[i]=NULL;
+        }
+    }
+};
+class Trie{
+    public:
+    Node * root;
+    Trie(){
+        root=new Node();
+    }
+    // O(len word)
+    void insert(string &word,int value){
+        Node &node = root;
+        for(int i=0;i<word.length();i++){
+            if(node->links[word[i]-'a']==NULL){
+                node->links[words[i]]=new Node();
+            }
+            node=node->links[words[i]-'a']
+        }
+        node->isend=1;
+        node->index=value;
+    }
+    int getprefix(string &word){
+        Node &node = root;
+        for(int i=0;i<word.length();i++){
+            if(node->links[word[i]-'a']==NULL){
+                return -1;
+            }
+            node=node->links[words[i]-'a']
+        }
+        return node->index;
+    }
+    bool findprefix(string &word){
+        Node &node = root;
+        for(int i=0;i<word.length();i++){
+            if(node->links[word[i]-'a']==NULL){
+                return false;
+            }
+            node=node->links[words[i]-'a']
+        }
+        return true;
+    }
+    bool search(string &word){
+        Node &node = root;
+        for(int i=0;i<word.length();i++){
+            if(node->links[word[i]-'a']==NULL){
+                return false;
+            }
+            node=node->links[words[i]-'a']
+        }
+        return node->isend;
+    }
+};
+```
