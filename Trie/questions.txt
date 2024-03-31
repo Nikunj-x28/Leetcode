@@ -1,1 +1,3 @@
 https://leetcode.com/problems/longest-common-suffix-queries/description/
+
+https://www.geeksforgeeks.org/problems/count-of-distinct-substrings/1

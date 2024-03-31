@@ -1,0 +1,6 @@
+https://algo.monster/liteproblems/2237
+
+2237. Count Positions on Street With Required Brightness
+
+Similar, here we are given a threshold of brightness for each index, first fill up the count by +1 and -1 index
+where brightness start and end. Now scan the vector and see if threshold achieved , if yes ++ans.

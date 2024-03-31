@@ -1,0 +1,2 @@
+In these kind of problems we dont plot points on an axis and sweep a line. We already have the axis.
+We just need to sort it. Then start sweeping it.

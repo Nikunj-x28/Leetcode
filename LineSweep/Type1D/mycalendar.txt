@@ -1,0 +1,5 @@
+https://leetcode.com/problems/my-calendar-ii/
+
+We have to count if there are triple booking , so if at any time we have count >=3 (==3 is enough).We return
+false and also remove this booking from the entry. Same approach, use a map and +1 when booking start and -1
+when booking end. Sweep the line from left to right.

@@ -132,66 +132,89 @@ class DisjointSets {
 
 # Trie
 ```
-    class Node{
+class Node {
     public:
     Node *links[26];
     bool isend;
-    int index;
+    int count;
     Node(){
         isend=false;
-        index=-1;
+        count=0;
+        for(int i=0;i<26;i++) links[i]=NULL;
+    }
+    bool haskey(char c){
+        return links[c-'a']!=NULL;
+    }
+    Node *getkey(char c){
+        return links[c-'a'];
+    }
+    void putkey(char c){
+        links[c-'a']=new Node();
+    }
+    ~ Node(){
         for(int i=0;i<26;i++){
-            links[i]=NULL;
+            delete links[i];
         }
     }
 };
-class Trie{
-    public:
-    Node * root;
-    Trie(){
+class Trie {
+public:
+    Node *root;
+    Trie() {
         root=new Node();
     }
-    // O(len word)
-    void insert(string &word,int value){
-        Node &node = root;
-        for(int i=0;i<word.length();i++){
-            if(node->links[word[i]-'a']==NULL){
-                node->links[words[i]]=new Node();
+    
+    void insert(string& word) {
+        Node *node=root;
+        for(int i=0;i<word.size();i++){
+            if(node->haskey(word[i])){
+                node=node->getkey(word[i]);
+            }else{
+                node->putkey(word[i]);
+                node=node->getkey(word[i]);
             }
-            node=node->links[words[i]-'a']
+            node->count++;
         }
-        node->isend=1;
-        node->index=value;
+        node->isend=true;
     }
-    int getprefix(string &word){
-        Node &node = root;
-        for(int i=0;i<word.length();i++){
-            if(node->links[word[i]-'a']==NULL){
-                return -1;
-            }
-            node=node->links[words[i]-'a']
-        }
-        return node->index;
-    }
-    bool findprefix(string &word){
-        Node &node = root;
-        for(int i=0;i<word.length();i++){
-            if(node->links[word[i]-'a']==NULL){
+    
+    bool search(string& word) {
+        Node *node=root;
+        for(int i=0;i<word.size();i++){
+            if(node->haskey(word[i])){
+                node=node->getkey(word[i]);
+            }else{
                 return false;
             }
-            node=node->links[words[i]-'a']
-        }
-        return true;
-    }
-    bool search(string &word){
-        Node &node = root;
-        for(int i=0;i<word.length();i++){
-            if(node->links[word[i]-'a']==NULL){
-                return false;
-            }
-            node=node->links[words[i]-'a']
         }
         return node->isend;
     }
+    int countPrefixOccurence(string& word) {
+        Node *node=root;
+        for(int i=0;i<word.size();i++){
+            if(node->haskey(word[i])){
+                node=node->getkey(word[i]);
+            }else{
+                return false;
+            }
+        }
+        return node->isend;
+    }
+    
+    bool startsWith(string& prefix) {
+        Node *node=root;
+        for(int i=0;i<prefix.size();i++){
+            if(node->haskey(prefix[i])){
+                node=node->getkey(prefix[i]);
+            }else{
+                return false;
+            }
+        }
+        return true;
+    }
+     ~Trie(){
+        delete root;
+    }
 };
+
 ```

@@ -1,0 +1,5 @@
+Start end times of meetings given. Need to find miniumu rooms needed to accomodate all meetings.
+
+When a meeting start we plot +1 for end we do -1.
+Now we scan the line, and store the value in count , if count is 1 that mean 1 meeting start, if its 2 that
+means 2nd meeting started before 1st ended, so we need 2 room atleast.This count we save in ans if count > ans.
