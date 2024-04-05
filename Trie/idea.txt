@@ -1,0 +1,18 @@
+The most crucial idea about when to use Trie is ->
+When we need to perform prefix searches efficiently.
+For example ->
+
+a b c d 
+a b d f 
+b b c d 
+b b d e 
+
+if our search logic considers same prefix equally ..
+    i.e we have somewhat the following logical search space use Trie.
+     a     b
+     |     |
+     b     b
+     /\    /\
+     c d   c d
+     | |   | |
+     d f   d e
