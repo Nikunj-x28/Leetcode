@@ -1,8 +1,12 @@
 1. Directly use 2d prefix sum.
 https://leetcode.com/problems/range-sum-query-2d-immutable/description/
 
-2. Same thing as previous problem just asked indirectly
+2. Direct Usage of prefix matrix
+
+https://leetcode.com/problems/count-submatrices-with-top-left-element-and-sum-less-than-k/description/
+
+3. Same thing as previous problem just asked indirectly
 https://leetcode.com/problems/matrix-block-sum/description/
 
-3. Good Question on the concept
+4. Good Question on the concept
 https://leetcode.com/problems/stamping-the-grid/description/
