@@ -218,3 +218,10 @@ public:
 };
 
 ```
+# Principal Of Inclusion and Exclusion
+```
+use bitmask for all the combinations
+for(int mask=1;mask<(1<<n);mask++){
+    
+}
+```
