@@ -1,0 +1,6 @@
+In questions where we need to find optimal length of subarray with given sum  constraints
+:- If you feel stuck try to remodel the problem in form of Prefix sums and finiding their difference
+to achieve the desired result.
+
+questions :
+https://leetcode.com/problems/shortest-subarray-with-sum-at-least-k/description/
