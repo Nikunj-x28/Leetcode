@@ -21,3 +21,5 @@ _Leetcode 1383 is ditto(almost) same as above_
 ## Leetcode 857. Minimum Cost to Hire K Workers
 
 _This one is a good one_
+
+## Leetcode 2813. Maximum Elegance of a K-Length Subsequence##
