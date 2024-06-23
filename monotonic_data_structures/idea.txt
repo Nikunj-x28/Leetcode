@@ -1,0 +1,6 @@
+Whenever in a problem you need to maintain information about the smallest or the largest elements found yet
+and if for some reason that smallest number becomes invalid we need to know the  next smallest number to its
+right this is a hint of a monotonic structure.
+If having problmes thinking about how to use a queue,stack or deque first use
+a priority_queue to arrive at the solution then it becomes very easy to replace the priority_queue logic
+with other faster monotonic data structures.
