@@ -20,23 +20,3 @@ long long intersect(vector<int> &rectangle_one_bottom,vector<int>& rectangle_one
             return 1ll * (x2-x1) * (y2-y1);
 }
 ```
-# SMALLEST PRIME FACTOR ALGORITHM
-```
-#define MAXN 100001
-int spf[MAXN];
-void sieve()
-{
-    spf[1] = 1;
-    for (int i = 2; i < MAXN; i++)
-        spf[i] = i;
-    for (int i = 2; i * i < MAXN; i++) {
-        // checking if i is prime
-        if (spf[i] == i) {
-            for (int j = i * i; j < MAXN; j += i)
-            // if not marked by any smaller prime mark it
-                if (spf[j] == j)
-                    spf[j] = i;
-        }
-    }
-}
-```

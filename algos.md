@@ -1,4 +1,16 @@
-# KMP algorithm
+(For contest usage)
+# LINKS
+1. [Trie](#trie)
+2. [KMP](#kmp_algorithm)
+3. [Z Array](#z_array)
+4. [Rabin Karp](#rabinkarp)
+5. [Binary Exponentiantion](#binary_exponentiantion)
+6. [DSU](#dsu)
+7. [Principal of inclusion exclusion](#pie)
+8. [Bellman Ford](#bellman_ford)
+9. [Smallest Prime factor](#spf)
+
+# KMP_algorithm
 ## mark index of string s where pattern a is found.
 ```
     a is pattern string
@@ -16,7 +28,7 @@
     } 
 ```
 
-# Z Array
+# Z_Array
 ```
     Examples :-
     aaaaa   - [0, 4, 3, 2, 1]
@@ -47,8 +59,10 @@
         return z;
     }
 ```
-# Rabin Karp / Rolling Hash 
-# for lowercase character only strings
+
+# Rabin_Karp
+## aka rolling hash
+## for lowercase character only strings 
 ```
     s is pattern string
     t is text string
@@ -79,7 +93,7 @@
     }
 ```
 
-# Binary Exponentiantion
+# Binary_Exponentiantion
 ```
     ll binexp(ll a, ll b,ll m=1e9+7)
     {
@@ -96,6 +110,7 @@
     return ex%m;
     }
 ```
+
 # DSU
 ```
 class DisjointSets {
@@ -218,10 +233,53 @@ public:
 };
 
 ```
-# Principal Of Inclusion and Exclusion
+
+# Pie
 ```
 use bitmask for all the combinations
 for(int mask=1;mask<(1<<n);mask++){
     
+}
+```
+
+# Bellman_Ford
+```
+handles 1 based indexing also
+
+const long long inf = 1e15;
+vector<ll> Bellman(int src,vector<vector<int>> &edges){
+    vector<ll> dist(n+1,inf); 
+    dist[src]=0;
+    for(int i=1;i<n;i++){
+        for(auto &it:edges){
+            int from = it[0];
+            int to = it[1];
+            ll weight = it[2];
+            if(dist[from]!=inf and dist[from]+weight<dist[to]){
+                dist[to] =dist[from]+weight;
+            }
+        }
+    }
+}
+```
+
+# SPF
+```
+#define MAXN 100001
+int spf[MAXN];
+void sieve()
+{
+    spf[1] = 1;
+    for (int i = 2; i < MAXN; i++)
+        spf[i] = i;
+    for (int i = 2; i * i < MAXN; i++) {
+        // checking if i is prime
+        if (spf[i] == i) {
+            for (int j = i * i; j < MAXN; j += i)
+            // if not marked by any smaller prime mark it
+                if (spf[j] == j)
+                    spf[j] = i;
+        }
+    }
 }
 ```

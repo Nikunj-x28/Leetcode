@@ -10,3 +10,6 @@ https://leetcode.com/problems/matrix-block-sum/description/
 
 4. Good Question on the concept
 https://leetcode.com/problems/stamping-the-grid/description/
+
+5. Mixed question
+https://leetcode.com/problems/number-of-submatrices-that-sum-to-target/description/?envType=daily-question&envId=2024-01-28
