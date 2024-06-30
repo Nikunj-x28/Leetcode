@@ -6,9 +6,8 @@ Now if the question has the following patterns :-
 2. For each possibility you need to just have in your hand best "k" performers.
    => Use a priority queue to maintain your best hand and try out each possibility.
 
-Trying out all possibility doesn't mean I'm talking about recursion problems.
-Here it applies to questions where lets say you fix one end of a subarray then you need to find the best "k"
-performers to its right or left using a PQ.
+Idea is keep K best performers and whenever you enter a new element just try to find the best possible answer
+you can with this element and compare it with the global maximum.
 
 practice the following to get a good grasp ;)
 
@@ -22,4 +21,7 @@ _Leetcode 1383 is ditto(almost) same as above_
 
 _This one is a good one_
 
-## Leetcode 2813. Maximum Elegance of a K-Length Subsequence##
+## Leetcode 2813. Maximum Elegance of a K-Length Subsequence
+
+## Leetcode 2071. Maximum Number of Tasks You Can Assign
+(Combination of tpics question)
