@@ -9,6 +9,7 @@
 7. [Principal of inclusion exclusion](#pie)
 8. [Bellman Ford](#bellman_ford)
 9. [Smallest Prime factor](#spf)
+10. [Tree Diameter Algorithm](#tree_diameter)
 
 # KMP_algorithm
 ## mark index of string s where pattern a is found.
@@ -281,5 +282,52 @@ void sieve()
                     spf[j] = i;
         }
     }
+}
+```
+
+# Tree_Diameter
+## T.C O(2*(V+E)) uses two BFS
+## n is number of nodes in the tree 
+```
+vector<int> diameter(vector<int> adj[],int &n){
+        if(n==1){
+            return {0};
+        }
+        vector<int> vis(n,0);
+        vis[0]++;
+        queue<int> q;
+        q.push(0);
+        int start,end;
+        while(!q.empty()){
+            int node = q.front(); q.pop();
+            start=node;
+            for(auto &it:adj[node]){
+                if(!vis[it]){
+                    vis[it]++;
+                    q.push(it);
+                }
+            }
+        }
+        vis[start]=0;
+        q.push(start);
+        vector<int> parent(n,-1);
+        while(!q.empty()){
+            int node = q.front(); q.pop();
+            end=node;
+            for(auto &it:adj[node]){
+                if(vis[it]){
+                    parent[it]=node;
+                    vis[it]=0;
+                    q.push(it);
+                }
+            }
+        }
+        vector<int> ans;
+        while(end!=start){
+            ans.push_back(end);
+            end=parent[end];
+        }
+        ans.push_back(start);
+        return ans;
 }
 ```
