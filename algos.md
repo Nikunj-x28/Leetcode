@@ -10,6 +10,7 @@
 8. [Bellman Ford](#bellman_ford)
 9. [Smallest Prime factor](#spf)
 10. [Tree Diameter Algorithm](#tree_diameter)
+11. [Strongly Connected Components(kosaraju)](#scc)
 
 # KMP_algorithm
 ## mark index of string s where pattern a is found.
@@ -330,4 +331,55 @@ vector<int> diameter(vector<int> adj[],int &n){
         ans.push_back(start);
         return ans;
 }
+```
+
+# SCC
+## finds strongly connected components by designating a root number to them
+## number of scc = root count
+## T.C = O(V+E)
+```
+
+void dfs(int node,vector<int> adj[],vector<int> &vis,vector<int> &ord){
+    vis[node]=1;
+    for(auto &it:adj[node]){
+        if(!vis[it]){
+            dfs(it,adj,vis,ord);
+        }
+    }
+    ord.push_back(node);
+}
+
+void revdfs(int node,vector<int> adj[],vector<int> &vis,int &kingdom){
+    vis[node]=kingdom;
+    for(auto &it:adj[node]){
+        if(!vis[it]){
+            revdfs(it,adj,vis,kingdom);
+        }
+    }
+}
+
+vector<int> scc(int n,vector<vector<int>> &edges){
+	   // 1 based indexing modify if needed
+       vector<int> adj[n+1],radj[n+1];
+       vector<int> vis(n+1,0),ord;
+       for(auto &it:edges){
+        adj[it[0]].push_back(it[1]);
+        radj[it[1]].push_back(it[0]);
+       }
+       for(int i=1;i<=n;i++){
+            if(!vis[i])
+                dfs(i,adj,vis,ord);
+       }
+       reverse(ord.begin(),ord.end());
+       vector<int> roots(n+1,0);
+       int root=0;
+       for(auto &it:ord){
+            if(!roots[it]){
+                root++;
+                revdfs(it,radj,roots,root);
+            } 
+       }
+	   return roots;
+}
+
 ```
