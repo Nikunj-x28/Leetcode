@@ -11,6 +11,7 @@
 9. [Smallest Prime factor](#spf)
 10. [Tree Diameter Algorithm](#tree_diameter)
 11. [Strongly Connected Components(kosaraju)](#scc)
+12. [Find negative cycles](#negative_cycles)
 
 # KMP_algorithm
 ## mark index of string s where pattern a is found.
@@ -382,4 +383,53 @@ vector<int> scc(int n,vector<vector<int>> &edges){
 	   return roots;
 }
 
+```
+# Negative_cycles
+```
+void solve(int n,vector<vector<int>> &edges){
+  // 1 based nodes
+  // The graph can be disconnected so assume an extra node 0 that is connected to all the other nodes
+  // and thus dist[] value for each node is 0 in the beginning.
+  // Thus relaxation would mean negative distances.
+
+  // Bellman Ford 
+  // ith iteration means relax all nodes using paths of length at most i.
+  // nth iteration => path of length n => cycle => if it still relaxs => negative cycle
+  vector<ll> dist(n+1,0);
+  vector<int> parent(n+1,-1);
+  int isCycle = 0;
+  for(int i=1;i<=n;i++){
+    isCycle=0;
+    for(auto &it:edges){
+      int from=it[0],to=it[1],wt=it[2];
+      if(dist[from]+wt<dist[to]){
+        dist[to]=dist[from]+wt;
+        parent[to]=from;
+        isCycle=to;
+      }
+    }
+  }
+  if(isCycle){
+    cout<<"YES\n";
+    vector<int> cycle;
+    // a relaxed node could be a part of the cycle or it could be a node reachable through a cycle.
+    // so if we go far back enough we will enter the cycle
+    // But how far ?
+    // If we go back n-1 times we are guaranteed to reach a cycle, assume a node with a self negative loop
+    // how far a node that is connected to this self loop node can be ? 
+    // at most n-1 steps so if we come back n-1 steps we are guaranteed to enter a cycle.
+
+    for (int i = 0; i < n; ++i)
+            isCycle = parent[isCycle];
+    for(int v=isCycle;;v=parent[v]){
+       cycle.push_back(v);
+       if(v==isCycle and cycle.size() > 1)
+          break;
+    }
+    reverse(cycle.begin(), cycle.end());
+    for(auto &it:cycle) cout<<it<<" ";
+  }else{
+    cout<<"NO\n";
+  }
+}
 ```
