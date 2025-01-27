@@ -1,0 +1,13 @@
+Suppose you plan a travel trip and visit many cities. But you forgot the order and only have train tickets from City A - City B.
+To find the exact order of your travel what can you do ?
+IF we take each city as a node in a graph and each ticket as an edge we have a simplified problem. Finding a path in the graph that
+traverses all edges and too exactly once.
+Such a path is called as the Eulerian Path. And if the start and end node are same it is called the Eulerian Circuit.
+
+To solve it we can use Hierholzer Algorithm (O(E) T.C);
+(read about it)
+
+some problems to practice.
+
+Leetcode 332. Reconstruct Itinerary
+Leetcode 2097. Valid Arrangement of Pairs
